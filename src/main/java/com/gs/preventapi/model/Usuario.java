@@ -1,18 +1,14 @@
 package com.gs.preventapi.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "USUARIO")
 public class Usuario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer idUsuario;
 
@@ -28,9 +24,14 @@ public class Usuario {
     @Column(name = "tipo_usuario", length = 20, nullable = false)
     private String tipoUsuario;
 
+    @Column(name = "usuario_criado", nullable = false)
+    private LocalDateTime usuarioCriado;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_regiao", nullable = false)
     private Regiao regiao;
+
+    // Getters e Setters
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -70,6 +71,14 @@ public class Usuario {
 
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public LocalDateTime getUsuarioCriado() {
+        return usuarioCriado;
+    }
+
+    public void setUsuarioCriado(LocalDateTime usuarioCriado) {
+        this.usuarioCriado = usuarioCriado;
     }
 
     public Regiao getRegiao() {

@@ -23,7 +23,11 @@ public class RegiaoService {
     }
 
     public Regiao salvar(Regiao regiao) {
-        return regiaoRepository.save(regiao);
+        System.out.println(regiao.getNome());
+        System.out.println(regiao.getEstado());
+        System.out.println(regiao.getId());
+        regiaoRepository.save(regiao);
+        return regiao;
     }
 
     public void deletar(Integer id) {
@@ -33,7 +37,8 @@ public class RegiaoService {
     public Optional<Regiao> atualizar(Integer id, Regiao novaRegiao) {
         return regiaoRepository.findById(id).map(regiaoExistente -> {
             regiaoExistente.setNome(novaRegiao.getNome());
-            regiaoExistente.setDescricao(novaRegiao.getDescricao());
+            regiaoExistente.setEstado(novaRegiao.getEstado());
+
             return regiaoRepository.save(regiaoExistente);
         });
     }

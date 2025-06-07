@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 public class HistoricoRisco {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "descricao")

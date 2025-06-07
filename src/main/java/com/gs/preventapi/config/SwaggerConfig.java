@@ -9,13 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(
-        info = @Info(title = "Prevent API", version = "v1"),
-        security = @SecurityRequirement(name = "basicAuth")
-)
-@SecurityScheme(
-        name = "basicAuth",
-        type = SecuritySchemeType.HTTP,
-        scheme = "basic"
+        info = @Info(title = "Prevent API", version = "v1")
 )
 public class SwaggerConfig {
 }

@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class Checklist {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String descricao;
