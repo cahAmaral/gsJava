@@ -12,7 +12,7 @@ public class UsuarioDTO {
     @Size(max = 30)
     private String nomeUsuario;
 
-    @NotBlank(message = "Email é obrigatório")
+    @NotBlank(message = "Email é obrigatório.")
     @Email(message = "Email inválido")
     private String emailUsuario;
 
