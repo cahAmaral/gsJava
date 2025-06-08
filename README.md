@@ -1,34 +1,69 @@
-# PreventPlus API
+# Prevent+ – Aplicativo de Prevenção e Educação para Desastres Naturais
 
-API RESTful para prevenção e mitigação dos impactos de eventos extremos, construída com Spring Boot.
+Prevent+ é uma solução desenvolvida em Java com Spring Boot para prevenção, educação e alerta sobre desastres naturais como enchentes, deslizamentos e incêndios.
 
-## Descrição
+Este repositório contém a API RESTful conectada a um banco de dados Oracle, com endpoints para gerenciamento de usuários, alertas, dicas, checklists, regiões e muito mais.
 
-Este projeto tem como objetivo concentrar dados e regras de negócio para ajudar na prevenção de desastres naturais e auxiliar a população e órgãos responsáveis. Ele inclui:
+---
 
-- CRUD completo para entidades como Usuário, Região, Tipo de Desastre, Alerta, entre outras.
-- Persistência com Spring Data JPA e banco H2 (em memória) para desenvolvimento.
-- Validação de dados com Bean Validation.
-- Paginação, ordenação e filtros nas consultas.
-- Documentação da API via Swagger.
-- Autenticação com JWT (planejada/implementação futura).
-- Projeto preparado para deploy em nuvem (Azure, AWS, etc).
+## 🚀 Tecnologias Utilizadas
 
-## Tecnologias usadas
+- Java 21 
+- Spring Boot  
+- Spring Data JPA  
+- Oracle Database  
+- Maven  
+- Lombok  
+- Swagger/OpenAPI  
+- Postman  
 
-- Java 17
-- Spring Boot 3.x
-- Spring Data JPA
-- Bean Validation (Jakarta Validation)
-- Oracle Database
-- Swagger/OpenAPI
-- JWT (JSON Web Tokens) - para autenticação
-- Maven
+---
 
-## Como rodar localmente
+## 🗂 Estrutura do Projeto
+
+src/
+└── main/
+├── java/
+│ └── com.prevent.preventplus/
+│ ├── model/ # Entidades JPA
+│ ├── dto/ # Data Transfer Objects
+│ ├── repository/ # Interfaces de acesso a dados
+│ ├── service/ # Regras de negócio
+│ └── controller/ # Endpoints REST
+└── resources/
+├── application.properties
+└── data.sql (opcional para carga inicial)
+
+---
+
+## 📌 Funcionalidades
+
+- Cadastro e consulta de usuários  
+- Registro de alertas de desastres  
+- Exibição de dicas por tipo de desastre  
+- Checklists de preparação personalizáveis  
+- Kits de emergência por usuário  
+- Gerenciamento de locais seguros  
+- Notificações manuais e automáticas  
+- Histórico de riscos por região  
+- Integração futura com modelo de Machine Learning  
+
+---
+
+## ⚙️ Como Rodar o Projeto
 
 1. Clone o repositório:
+```bash
+git clone https://github.com/cahAmaral/gsJava.git
+cd gsJava
+2. Configure o banco de dados Oracle em application.properties:
+spring.datasource.url=jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+spring.datasource.username=rm558012
+spring.datasource.password= 200106
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
 
-   ```bash
-   git clone https://github.com/cahAmaral/gsJava.git
-   cd gsJava
+3. Compile e execute o projeto:
+./gradlew bootRun
+
+4. Acesse a documentação da API:
+http://localhost:8081/swagger-ui/index.html
